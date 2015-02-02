@@ -42,7 +42,21 @@
 
 
         
-    
+
+            <script>
+    // Generate Beat message ASAP
+    try {
+        window.wixBiSession = {
+            initialTimestamp : Date.now(),
+            viewerSessionId: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c)
+                    { var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8); return v.toString(16); }
+            )
+        };
+        (new Image()).src = 'http://frog.wix.com/bt?src=29&evid=3&pn=1&et=1&v=3.0&vsi=' + wixBiSession.viewerSessionId +
+                '&url=' + encodeURIComponent(location.href.replace(/^http(s)?:\/\/(www\.)?/, '')) +
+                '&ts=0&c=' + wixBiSession.initialTimestamp;
+    } catch (e){}
+</script>    
     
 
     <!-- META DATA -->
